@@ -28,6 +28,14 @@
 				BorderRadius: 10,
 				DisplayDigits: 2
 			} 
+		},
+		configOptions: function(){
+			return [
+				{
+					title: "Format Symbol",
+					mode: "format"
+				}
+			];
 		}
 	}
 
@@ -38,7 +46,12 @@
 
 		function dataUpdate (data) {
 			scope.dataItems = data.Data[0].Values;
-			// console.log(data);
+
+			for(var i=0; i < scope.dataItems.length; i++) {
+				scope.dataItems[i].Value = scope.dataItems[i].Value.replace(",",".");
+			   }
+
+			console.log(scope.dataItems);
 			if (data.Data[0].Label) {
 				scope.Label = data.Data[0].Label;
 				scope.Units = data.Data[0].Units;

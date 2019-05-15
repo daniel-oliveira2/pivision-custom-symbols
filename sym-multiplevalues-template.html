@@ -2,7 +2,7 @@
     <h2>{{Label}} - {{Units}}</h2>
 
     <div ng-repeat='item in dataItems'>
-        {{item.Time}} - {{item.Value}}
+        {{item.Time}} - {{item.Value | number: config.DisplayDigits}}
     </div>
 
 </div>
